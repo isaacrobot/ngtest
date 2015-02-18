@@ -1,0 +1,51 @@
+<div class="container">
+
+    <!-- Introduction Row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">About Us
+                <small>It's Nice to Meet You!</small>
+            </h1>
+            <p>We are a small team of PHP developers formed together through our common love for the web and our passion for building wonderlicious websites & apps.</p>
+        </div>
+    </div>
+
+    <!-- Team Members Row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">Our Team</h2>
+        </div>
+        <div ng-repeat="member in team.members | orderBy:'-upvoteCount' | limitTo:1 " class="col-lg-4 col-sm-6 text-center">
+            <img class="img-circle img-responsive img-center" ng-src="{{member.imgURL}}" alt="{{member.name}}" style="height:200px; width:200px">
+            <h3 ng-click="upvote()">{{member.name}}
+                <small>{{member.title}}</small>
+            </h3>
+            <p>{{member.moto}}</p>
+            <p>Vote count: <span class="badge">{{member.upvoteCount}}</span></p>
+            <div class="well">
+                <button class="btn btn-primary" ng-click="upvote(member)">
+                  UPVOTE
+                </button>
+                <button class="btn btn-warning" ng-click="downvote(member)">
+                  DOWNVOTE
+                </button>
+                <p>Vote this person for no apparent reason.</p>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Ballsac</p>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+    </footer>
+
+</div>
+<!-- /.container -->
