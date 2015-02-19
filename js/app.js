@@ -4,30 +4,15 @@ var myApp = angular.module('myApp', ['ngResource','ngRoute'])
 
 	.config(
 		function($routeProvider, $locationProvider){
-			$routeProvider.when('/about',
+			$routeProvider.when('/',
 				{
 					templateUrl:'templates/home.html',
-					controller:'teamController'
+					controller:'controller'
 				}
 			);
 
-			$routeProvider.when('/services',
-				{
-					templateUrl:'templates/services.html',
-					controller:'teamController'
-				}
-			);
+			$routeProvider.otherwise({redirectTo:'/'});
 
-			$routeProvider.when('/contact',
-				{
-					templateUrl:'templates/contact.html',
-					controller:'teamController'
-				}
-			);
-
-			$routeProvider.otherwise({redirectTo:'/about'});
-
-			//$locationProvider.html5Mode({ enabled: true, requireBase: false });
 			$locationProvider.html5Mode(true);
 		}
 	);
