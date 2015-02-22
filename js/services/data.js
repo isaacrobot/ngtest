@@ -8,7 +8,6 @@ myApp.factory("Data", function ($http) {
             
             $http.get(serviceBase).success(function(response){
                $scope.names = response;
-                console.log($scope);
             });
 
 
